@@ -12,7 +12,8 @@ def run_command(cmd: list[str], description: str) -> bool:
 
 
 def main() -> None:
-    format_ok = run_command(["ruff", "format", "--check", "."], "Ruff Format Check")
+    # Added --preview to check markdown files
+    format_ok = run_command(["ruff", "format", "--preview", "--check", "."], "Ruff Format Check")
     lint_ok = run_command(["ruff", "check", "."], "Ruff Linter")
     mypy_ok = run_command(["mypy", "src/"], "Mypy Type-Checker")
 
